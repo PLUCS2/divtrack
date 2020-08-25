@@ -7,6 +7,7 @@
 #  email_ending :string           not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  owner_id     :integer          not null
 #
 class Company < ApplicationRecord 
 
@@ -14,5 +15,8 @@ class Company < ApplicationRecord
     validates :name, uniqueness: true 
 
     has_many :users
+
+    belongs_to :owner, 
+    class_name: :User 
 
 end 

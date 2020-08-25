@@ -20,6 +20,11 @@ class User < ApplicationRecord
     before_validation :ensure_session_token 
 
     belongs_to :company 
+
+    has_one :company, 
+    foreign_key: :owner_id, 
+    class_name: :User
+    
     attr_reader :password
 
     def self.find_by_credentials(username_or_email, password)
