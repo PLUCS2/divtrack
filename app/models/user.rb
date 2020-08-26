@@ -17,9 +17,10 @@ class User < ApplicationRecord
     validates :username, :email, :session_token, uniqueness: true 
     validate :sufficient_password 
     validate :ok_username
-    before_validation :ensure_session_token 
+    before_validation :ensure_session_token, :ensure_company_id  
 
-    # belongs_to :company 
+    belongs_to :company, 
+    optional: true
 
     has_one :company, 
     foreign_key: :owner_id, 
@@ -55,6 +56,16 @@ class User < ApplicationRecord
 
     def ok_username
         errors.add(base: "username must not have the '@' symbol") if self.username.include?("@")
+    end 
+
+    def ensure_company_id
+        if company_id.nil? 
+            employee_end_of_email = "@#{self.email.split("@")}"
+            company = Company.find_by(email_ending: employee_end_of_email)
+            if company 
+                self.company_id = company.id
+            end 
+        end
     end 
 
     def is_password?(password)
