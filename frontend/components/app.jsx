@@ -1,12 +1,15 @@
 import React from 'react'; 
-import SplashContainer from './splash/splash_container'; 
+import SplashContainer from './splash/logged_out_splash/splash_container'; 
+import HomeContainer from './splash/logged_in_splash/home_container'; 
 import Modal from './modal/modal'; 
+import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 export default () => {
     return (
         <div>
             <Modal /> 
-            <SplashContainer /> 
+            <AuthRoute exact path="/" component={SplashContainer} /> 
+            <ProtectedRoute exact path="/home" component={HomeContainer} /> 
         </div>
     )
 }; 

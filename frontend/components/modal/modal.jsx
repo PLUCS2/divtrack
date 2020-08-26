@@ -3,12 +3,16 @@ import { connect } from 'react-redux';
 import LoginContainer from '../session/login_container'; 
 import { closeModal } from '../../actions/modal_actions'; 
 
-function Modal ({ modal, closeModal, props }) {
+function Modal ({ modal, closeModal, props, currentUser }) {
 
 
     let component; 
+
     switch (modal) {
         case 'login': {
+            if (currentUser) {
+                return null;
+            };
             component = <LoginContainer /> 
             break; 
         }
@@ -22,7 +26,6 @@ function Modal ({ modal, closeModal, props }) {
 
     return (
         <div>
-            This is the modal
             <button onClick={closeModal}>X</button>
             {component}
         </div>
@@ -32,7 +35,8 @@ function Modal ({ modal, closeModal, props }) {
 
 const mapStateToProps = state => {
     return {
-        modal: state.ui.modal.modal
+        modal: state.ui.modal.modal, 
+        currentUser: Boolean(state.session.currentUserId)
     }
 }; 
 
