@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_24_172520) do
+ActiveRecord::Schema.define(version: 2020_08_26_143042) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,14 +24,32 @@ ActiveRecord::Schema.define(version: 2020_08_24_172520) do
     t.index ["name"], name: "index_companies_on_name", unique: true
   end
 
+  create_table "demographics", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "sex"
+    t.string "gender"
+    t.string "race"
+    t.string "ethnicity"
+    t.string "education_level"
+    t.integer "age"
+    t.string "primary_language"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_demographics_on_user_id", unique: true
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username", null: false
     t.string "email", null: false
-    t.integer "company_id", null: false
     t.string "password_digest", null: false
     t.string "session_token", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.integer "rank", default: 1, null: false
+    t.string "pronoun", default: "they/them/theirs", null: false
+    t.boolean "admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
   end

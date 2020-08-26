@@ -13,13 +13,13 @@
 #
 class User < ApplicationRecord 
 
-    validates :username, :email, :password_digest, :company_id, :session_token, presence: true 
+    validates :username, :email, :password_digest, :session_token, presence: true 
     validates :username, :email, :session_token, uniqueness: true 
     validate :sufficient_password 
     validate :ok_username
     before_validation :ensure_session_token 
 
-    belongs_to :company 
+    # belongs_to :company 
 
     has_one :company, 
     foreign_key: :owner_id, 
