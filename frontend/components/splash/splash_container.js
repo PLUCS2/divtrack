@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'; 
 import Splash from './splash'; 
+import { openModal } from '../../actions/modal_actions'; 
 
 const mapStateToProps = state => {
     return {
@@ -9,7 +10,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-
+        openModal: modalName => dispatch(openModal(modalName))
     }
 }; 
 

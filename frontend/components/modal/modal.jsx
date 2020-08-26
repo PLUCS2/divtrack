@@ -1,6 +1,7 @@
 import React from 'react'; 
 import { connect } from 'react-redux'; 
 import LoginContainer from '../session/login_container'; 
+import { closeModal } from '../../actions/modal_actions'; 
 
 function Modal ({ modal, closeModal, props }) {
 
@@ -22,6 +23,7 @@ function Modal ({ modal, closeModal, props }) {
     return (
         <div>
             This is the modal
+            <button onClick={closeModal}>X</button>
             {component}
         </div>
     )
@@ -36,7 +38,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-
+        closeModal: () => dispatch(closeModal())
     }
 }; 
 

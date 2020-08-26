@@ -8,7 +8,10 @@ class Splash extends React.Component {
 
     render() {
         return(
-            <div>This is the splash</div>
+            <>
+                <h2>This is the splash</h2>
+                <button onClick={(e) => this.props.openModal("login")}>Login!</button>
+            </>
         )
     }
 }; 
