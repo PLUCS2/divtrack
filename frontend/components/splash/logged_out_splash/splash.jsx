@@ -11,6 +11,7 @@ class Splash extends React.Component {
             <>
                 <h2>This is the splash</h2>
                 <button onClick={(e) => this.props.openModal("login")}>Login!</button>
+                <button onClick={(e) => this.props.openModal("sign up")}>Sign Up!</button>
             </>
         )
     }

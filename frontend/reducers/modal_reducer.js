@@ -1,4 +1,5 @@
 import { OPEN_MODAL, CLOSE_MODAL } from "../actions/modal_actions"; 
+import { RECEIVE_CURRENT_USER } from "../actions/session_actions";
 
 const _defaultState = {
     modal: null
@@ -12,6 +13,9 @@ export default (state = _defaultState, action) => {
             return {
                 modal: action.modal
             }
+        }
+        case RECEIVE_CURRENT_USER: {
+            return _defaultState
         }
         case CLOSE_MODAL: {
             return _defaultState

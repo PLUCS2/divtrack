@@ -1,6 +1,7 @@
 import React from 'react'; 
 import { connect } from 'react-redux'; 
 import LoginContainer from '../session/login_container'; 
+import SignupContainer from '../session/signup_container'; 
 import { closeModal } from '../../actions/modal_actions'; 
 
 function Modal ({ modal, closeModal, props, currentUser }) {
@@ -17,7 +18,7 @@ function Modal ({ modal, closeModal, props, currentUser }) {
             break; 
         }
         case 'sign up': {
-            // component = 
+            component = <SignupContainer /> 
             break; 
         }
         default: 

@@ -60,7 +60,7 @@ class User < ApplicationRecord
 
     def ensure_company_id
         if company_id.nil? 
-            employee_end_of_email = "@#{self.email.split("@")}"
+            employee_end_of_email = "@#{self.email.split("@")[-1]}"
             company = Company.find_by(email_ending: employee_end_of_email)
             if company 
                 self.company_id = company.id
