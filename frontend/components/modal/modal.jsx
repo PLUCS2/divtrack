@@ -26,8 +26,7 @@ function Modal ({ modal, closeModal, props, currentUser }) {
     }
 
     return (
-        <div>
-            <button onClick={closeModal}>X</button>
+        <div className="modal-background" onClick={closeModal}>
             {component}
         </div>
     )

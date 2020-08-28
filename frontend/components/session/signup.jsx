@@ -52,9 +52,13 @@ export default class Signup extends React.Component {
     render() {
 
         return (
-            <div>
-                <h2>Sign Up!</h2>
-                <form>
+            <div className="modal-child" onClick={e => e.stopPropagation()}>
+
+                <button className="modal-x" onClick={this.props.closeModal}>X</button>
+
+                <h2 className="session-form-header">Sign Up!</h2>
+
+                <form className="session-form">
 
                     <label>First Name
                         <input type="text" placeholder="Ada" value={this.state.first_name} onChange={this.handleInput("first_name")} />
@@ -91,9 +95,10 @@ export default class Signup extends React.Component {
 
                     <p>{this.passwordsMatch() ? null : "Your passwords do not match"}</p>
 
-                    <button type="submit" disabled={this.filledIn()} onClick={this.handleSubmit}>Sign Up</button>
-
+                    <button className="session-button" type="submit" disabled={this.filledIn()} onClick={this.handleSubmit}>Sign Up</button>
                 </form>
+
+                <p>Already have an account?<button className="modal-button" onClick={e => this.props.openModal("login")}>Login</button></p>
             </div>
         )
     }

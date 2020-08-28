@@ -37,9 +37,13 @@ class Login extends React.Component {
     render() {
 
         return (
-            <div>
-                <h2>Please Log In!</h2>
-               <form>
+            <div className="modal-child" onClick={e => e.stopPropagation()}>
+
+                <button className="modal-x" onClick={this.props.closeModal}>X</button>
+
+                <h2 className="session-form-header">Please Log In!</h2>
+
+               <form className="session-form">
                     <label>Email or Username
                         <input type="text" placeholder="name@company.com" value={this.state.username_or_email} onChange={this.handleInput("username_or_email")}/>
                     </label>     
@@ -48,9 +52,11 @@ class Login extends React.Component {
                         <input type="password" placeholder="password" value={this.state.password} onChange={this.handleInput("password")} />
                     </label>  
 
-                    <button type="submit" disabled={this.filledIn()} onClick={this.handleSubmit}>Login</button>
-
+                    <button className="session-button" type="submit" disabled={this.filledIn()} onClick={this.handleSubmit}>Login</button>
                </form>
+                
+                <p>Need an account?<button className="modal-button" onClick={e => this.props.openModal("sign up")}>Sign Up</button></p>
+            
             </div>
         )
     }

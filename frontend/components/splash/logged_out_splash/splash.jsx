@@ -9,7 +9,7 @@ class Splash extends React.Component {
     render() {
         return(
             <>
-                <h2>This is the splash</h2>
+                <h2>Welcome to DivTrack</h2>
                 <button onClick={(e) => this.props.openModal("login")}>Login!</button>
                 <button onClick={(e) => this.props.openModal("sign up")}>Sign Up!</button>
             </>

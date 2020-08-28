@@ -8,9 +8,8 @@ export default ({store}) => {
     return( 
         <Provider store={store}> 
             <HashRouter>
-                <div>Welcome to Divtrack</div>
                 <App />
             </HashRouter>
-        </Provider >
+        </Provider>
     )
 }; 
