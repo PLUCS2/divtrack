@@ -1,5 +1,6 @@
 import { connect } from 'react-redux'; 
 import CompanyForm from './company_form';
+import { createCompany } from '../../actions/company_actions';
 
 const mapStateToProps = state => {
     return {
@@ -9,7 +10,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-
+        createCompany: company => dispatch(createCompany(company))
     }
 }; 
 

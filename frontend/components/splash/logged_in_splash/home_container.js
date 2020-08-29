@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'; 
 import Home from './home'; 
-import { logoutUser } from '../../../actions/session_actions'; 
+import { logoutUser } from '../../../actions/session_actions';
+import { fetchCompany } from '../../../actions/company_actions';  
 
 const mapStateToProps = state => {
     return {
@@ -10,7 +11,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        logout: () => dispatch(logoutUser())
+        logout: () => dispatch(logoutUser()), 
+        fetchCompany: id => dispatch(fetchCompany(id))
     }
 }; 
 
