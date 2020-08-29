@@ -73,7 +73,6 @@ class User < ApplicationRecord
     end 
 
     def password=(password)
-        # debugger
         @password = password 
         self.password_digest = BCrypt::Password.create(password)
     end
@@ -84,7 +83,7 @@ class User < ApplicationRecord
 
     def reset_session_token! 
         self.session_token = self.class.generate_session_token
-        self.session_token = self.class.generate_session_token until self.save 
+        self.session_token = self.class.generate_session_token until self.save! 
         self.session_token
     end 
 
