@@ -61,3 +61,16 @@
 .session-form-header {
     font-size: 300%; 
 }
+
+.session-button {
+    width: fit-content;
+    color: #3c6ca0; 
+    cursor: pointer; 
+    background-color: #d8e1e4; 
+}
+
+.session-button:disabled {
+    color: rgb(178, 232, 231);
+    border: 1px solid #3c6ca0; 
+}
+
