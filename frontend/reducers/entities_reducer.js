@@ -4,5 +4,5 @@ import companiesReducer from './companies_reducer';
 
 export default combineReducers({
     users: usersReducer, 
-    company: companiesReducer
+    companies: companiesReducer
 });
