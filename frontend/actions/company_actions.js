@@ -16,4 +16,9 @@ export const createCompany = company => dispatch => {
 
 export const fetchCompany = id => dispatch => {
     return APIUtil.fetchCompany(id).then(company => dispatch(receiveCompany(company))); 
-}
+}; 
+
+export const editCompany = company => dispatch => {
+    return APIUtil.editCompany(company).then(company => dispatch(receiveCompany(company)));
+}; 
+

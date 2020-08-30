@@ -12,3 +12,11 @@ export const fetchCompany = id => {
         url: `/api/companies/${id}`
     })
 }; 
+
+export const editCompany = company => {
+    return $.ajax({
+        method: "PATCH", 
+        url: `/api/companies/${company.id}`, 
+        data: company
+    })
+};
