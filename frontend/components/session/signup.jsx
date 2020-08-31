@@ -58,6 +58,8 @@ export default class Signup extends React.Component {
 
                 <h2 className="session-form-header">Sign Up!</h2>
 
+                <p>{this.props.errors}</p>
+
                 <form className="session-form">
 
                     <label>First Name
@@ -69,7 +71,7 @@ export default class Signup extends React.Component {
                     </label>
 
                     <label>Email
-                        <input type="text" placeholder="name@company.com" value={this.state.email} onChange={this.handleInput("email")} />
+                        <input type="email" placeholder="name@company.com" value={this.state.email} onChange={this.handleInput("email")} />
                     </label>
 
                     <label>Username

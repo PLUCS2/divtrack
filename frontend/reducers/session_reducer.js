@@ -4,7 +4,7 @@ const _nullState = {currentUserId: null};
 
 export default (state = _nullState, action) => {
 
-    Object.freeze(state)
+    Object.freeze(state); 
 
     switch (action.type) {
         case RECEIVE_CURRENT_USER: {

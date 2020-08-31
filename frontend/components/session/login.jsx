@@ -43,6 +43,8 @@ class Login extends React.Component {
 
                 <h2 className="session-form-header">Please Log In!</h2>
 
+                <p>{this.props.errors}</p>
+
                <form className="session-form">
                     <label>Email or Username
                         <input type="text" placeholder="name@company.com" value={this.state.username_or_email} onChange={this.handleInput("username_or_email")}/>
