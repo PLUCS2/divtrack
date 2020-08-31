@@ -11,8 +11,7 @@
 #
 class Company < ApplicationRecord 
 
-    validates :name, :email_ending, presence: true
-    validates :name, uniqueness: true 
+    validates :name, :email_ending, presence: true, uniqueness: true 
 
     has_many :employees, 
     foreign_key: :company_id, 

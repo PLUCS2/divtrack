@@ -29,6 +29,8 @@ export default class CompanyForm extends React.Component {
         return (
             <div>
 
+                <p>{this.props.errors}</p>
+
                 <form>
                     <label>Name
                         <input type="text" onChange={this.handleInput("name")} value={this.state.name}/>

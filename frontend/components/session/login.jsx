@@ -36,6 +36,10 @@ class Login extends React.Component {
 
     render() {
 
+        const errors = this.props.errors.map((error, idx) => {
+            return <p key={idx}>{error}</p>
+        });
+
         return (
             <div className="modal-child" onClick={e => e.stopPropagation()}>
 
@@ -43,7 +47,7 @@ class Login extends React.Component {
 
                 <h2 className="session-form-header">Please Log In!</h2>
 
-                <p>{this.props.errors}</p>
+                <div>{errors}</div>
 
                <form className="session-form">
                     <label>Email or Username

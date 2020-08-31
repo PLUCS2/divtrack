@@ -44,18 +44,18 @@ class User < ApplicationRecord
 
     def sufficient_password
         return true if self.password.nil? 
-        self.errors[:password] << "password is too short" if password.length < 12 
+        self.errors[:password] << "is too short" if password.length < 12 
         
         inc = false 
             password.each_char do |let|
                 inc = true if (1..9).to_a.to_s.include?(let)
             end 
 
-        self.errors[:password] <<  "password must include an integer" unless inc
+        self.errors[:password] <<  "must include an integer" unless inc
     end 
 
     def ok_username
-        self.errors[:username] << "username must not have the '@' symbol" if self.username.include?("@")
+        self.errors[:username] << "must not have the '@' symbol" if self.username.include?("@")
     end 
 
     def ensure_company_id

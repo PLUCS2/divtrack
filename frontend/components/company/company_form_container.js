@@ -4,7 +4,7 @@ import { createCompany } from '../../actions/company_actions';
 
 const mapStateToProps = state => {
     return {
-
+        errors: state.errors.company
     }
 }; 
 

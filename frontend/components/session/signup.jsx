@@ -37,8 +37,34 @@ export default class Signup extends React.Component {
         return true 
     }
 
+    passwordValid() {
+        if (this.state.password !== "") {
+            let number; 
+            this.state.password.split("").forEach(el => {
+                if ("1234567890".includes(el)) {
+                    number = true; 
+                }
+            }); 
+
+            if (number) {
+                if (this.state.password.length >= 12) {
+                    return null; 
+                }
+
+                return "Password must be at least 12 characters"
+            };
+
+            if (this.state.password.length >= 12) {
+                return "Password must include a number"
+            };
+
+            return "Password must include a number, Password must be at least 12 characters";
+        }
+        return null; 
+    }
+
     filledIn() {
-        if (this.passwordsMatch()) {
+        if (this.passwordsMatch() && this.isEmail()) {
             let filledOut = Object.keys(this.state).map(el => {
                 if (this.state[el] === "") {
                    return true
@@ -49,7 +75,26 @@ export default class Signup extends React.Component {
         return true; 
     }
 
+    isEmail() {
+        if(this.state.email.includes("@")) {
+            if (this.state.email.includes(".")){
+                return true; 
+            }
+            return false; 
+        }
+        
+        if(this.state.email === "") {
+            return true; 
+        }
+
+        return false; 
+    }
+
     render() {
+
+        const errors = this.props.errors.map((error, idx) => {
+            return <p key={idx}>{error}</p>
+        });
 
         return (
             <div className="modal-child" onClick={e => e.stopPropagation()}>
@@ -58,7 +103,7 @@ export default class Signup extends React.Component {
 
                 <h2 className="session-form-header">Sign Up!</h2>
 
-                <p>{this.props.errors}</p>
+                <div>{errors}</div>
 
                 <form className="session-form">
 
@@ -74,17 +119,23 @@ export default class Signup extends React.Component {
                         <input type="email" placeholder="name@company.com" value={this.state.email} onChange={this.handleInput("email")} />
                     </label>
 
+                    <p>{this.isEmail() ? null : "Must be a valid email"}</p>
+
                     <label>Username
                         <input type="text" placeholder="LadyByron" value={this.state.username} onChange={this.handleInput("username")} />
                     </label>
 
-                    <label>Password
+                    <label>Password 
                         <input type="password" placeholder="password" value={this.state.password} onChange={this.handleInput("password")} />
                     </label>
+
+                    <p>{this.passwordValid()}</p>
 
                     <label>Confirm Password 
                         <input type="password" placeholder="password" value={this.state.password_confirmation} onChange={this.handleInput("password_confirmation")} />
                     </label>
+
+                    <p>{this.passwordsMatch() ? null : "Your passwords do not match"}</p>
 
                     <label>Pronouns 
                         <select value={this.state.pronoun} onChange={this.handleInput("pronoun")} >
@@ -94,8 +145,6 @@ export default class Signup extends React.Component {
                             <option value="he/him/his">he/him/his</option>
                         </select>
                     </label>
-
-                    <p>{this.passwordsMatch() ? null : "Your passwords do not match"}</p>
 
                     <button className="session-button" type="submit" disabled={this.filledIn()} onClick={this.handleSubmit}>Sign Up</button>
                 </form>
