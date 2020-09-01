@@ -51,14 +51,14 @@ export default class Signup extends React.Component {
                     return null; 
                 }
 
-                return "Password must be at least 12 characters"
+                return (<p>"Password must be at least 12 characters"</p>); 
             };
 
             if (this.state.password.length >= 12) {
-                return "Password must include a number"
+                return (<p>"Password must include a number"</p>); 
             };
 
-            return "Password must include a number, Password must be at least 12 characters";
+            return (<p>"Password must include a number, Password must be at least 12 characters"</p>);
         }
         return null; 
     }
@@ -119,7 +119,7 @@ export default class Signup extends React.Component {
                         <input type="email" placeholder="name@company.com" value={this.state.email} onChange={this.handleInput("email")} />
                     </label>
 
-                    <p>{this.isEmail() ? null : "Must be a valid email"}</p>
+                    {this.isEmail() ? null : <p>"Must be a valid email"</p>}
 
                     <label>Username
                         <input type="text" placeholder="LadyByron" value={this.state.username} onChange={this.handleInput("username")} />
@@ -129,13 +129,13 @@ export default class Signup extends React.Component {
                         <input type="password" placeholder="password" value={this.state.password} onChange={this.handleInput("password")} />
                     </label>
 
-                    <p>{this.passwordValid()}</p>
+                    {this.passwordValid()}
 
                     <label>Confirm Password 
                         <input type="password" placeholder="password" value={this.state.password_confirmation} onChange={this.handleInput("password_confirmation")} />
                     </label>
 
-                    <p>{this.passwordsMatch() ? null : "Your passwords do not match"}</p>
+                    {this.passwordsMatch() ? null : <p>"Your passwords do not match"</p>}
 
                     <label>Pronouns 
                         <select value={this.state.pronoun} onChange={this.handleInput("pronoun")} >

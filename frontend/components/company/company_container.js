@@ -7,6 +7,7 @@ const mapStateToProps = state => {
         company: state.entities.companies[state.entities.users[state.session.currentUserId].company_id], 
         currentUser: state.entities.users[state.session.currentUserId]
     }
+    
 };
 
 const mapDispatchToProps = dispatch => {
