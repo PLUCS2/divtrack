@@ -26,29 +26,23 @@ export default class Company extends React.Component {
     }
 
     editForm() {
-
         if (!this.props.company) {
             return null;
         }
 
         if (this.props.company.owner_id === this.props.currentUser.id) {
-
-            return <EditCompanyContainer company={this.props.company} /> ; 
-            
+            return <EditCompanyContainer company={this.props.company} /> ;        
         }
 
         return null; 
-
     }
 
     handleClick(e) {
-
         e.preventDefault(); 
         
         let op = !this.state.show; 
 
         this.setState({show: op})
-
     }
 
     render() {

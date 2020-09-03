@@ -6,7 +6,6 @@ class Api::CompaniesController < ApplicationController
         if @company.save 
             current_user.company_id = @company.id
             current_user.save
-            @user = current_user
             render "api/companies/show"
         else 
             render json: @company.errors.full_messages, status: 401

@@ -3,11 +3,11 @@ import * as APIUtil from '../util/company_api_util';
 export const RECEIVE_COMPANY = "RECEIVE_COMPANY"; 
 export const RECEIVE_COMPANY_ERRORS = "RECEIVE_COMPANY_ERRORS";
 
-export const receiveCompany = ({company, user}) => {
+export const receiveCompany = ({company, users}) => {
     return {
         type: RECEIVE_COMPANY, 
         company, 
-        user 
+        users 
     }
 }; 
 

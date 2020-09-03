@@ -10,7 +10,7 @@ export default (state = {}, action) => {
             return Object.assign({}, state, { [action.user.id]: action.user })
         }
         case RECEIVE_COMPANY: {
-            return Object.assign({}, state, { [action.user.id]: action.user })
+            return Object.assign({}, state, action.users)
         }
         default: 
             return state;

@@ -22,6 +22,7 @@
     border: 5px solid #3c6ca0; 
     color: #3c6ca0; 
     overflow: scroll; 
+    background-color: white; 
 }
 
 .modal-x {
