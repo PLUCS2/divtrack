@@ -28,21 +28,21 @@ export default class EditForm extends React.Component {
     render() {
         
         return (
-            <div>
-                <form className="edit-company-form" onSubmit={this.handleSubmit}>
+            <form className="edit-company-form" onSubmit={this.handleSubmit}>
 
-                    <label>Company Name 
+                    {this.props.close}
+
+                    <label>Company Name          
                         <input type="text" value={this.state.name} onChange={this.handleChange("name")} />
                     </label>
 
-                    <label>Email Ending 
+                    <label>Email Ending            
                         <input type="text" value={this.state.email_ending} onChange={this.handleChange("email_ending")} />
                     </label>
 
-                    <button>Submit Changes</button>
+                <button className="edit-company-button">Submit Changes</button>
 
-                </form>
-            </div>
+            </form>
         )
 
     }

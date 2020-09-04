@@ -31,7 +31,8 @@ export default class Company extends React.Component {
         }
 
         if (this.props.company.owner_id === this.props.currentUser.id) {
-            return <EditCompanyContainer company={this.props.company} /> ;        
+            const close = (<p onClick={this.handleClick} className="edit-company-button close-edit-button">X</p>);
+            return <EditCompanyContainer company={this.props.company} close={close} /> ;        
         }
 
         return null; 
@@ -50,12 +51,12 @@ export default class Company extends React.Component {
         const editForm = this.editForm(); 
         const editingOption = this.state.owner ? (
             <div>
-                <p className="splash-button" onClick={this.handleClick}>{this.state.show ? "X" : "Edit Company"}</p>
+                {this.state.show ? null : (<p className="splash-button" onClick={this.handleClick}>Edit Company</p>)}
                 {this.state.show ? editForm : null}
             </div>) : null; 
 
         const employeeList = this.state.owner ? (
-            <ul>
+            <ul className="employee-list"> Employee List: 
                 {this.props.employees.map(emp => {
                     return (
                         <li key={emp.email}>{emp.first_name} {emp.last_name}</li>

@@ -1,3 +1,41 @@
 .edit-company-form {
-    
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    border: #1a4582 2px solid;
+    margin: 15px; 
+    padding: 2px 0px 15px 15px;
+}
+
+.edit-company-form label {
+    margin: 5px 0px; 
+}
+
+.edit-company-form input {
+    margin-left: 5px; 
+}
+
+.edit-company-button {
+    color: #3c6ca0; 
+    border: 2px solid  #3c6ca0;
+    border-radius: 5px;  
+    background-color: white; 
+    cursor: pointer; 
+    padding: 12px; 
+    line-height: 0; 
+    width: fit-content; 
+    margin-top: 8px; 
+}
+
+.close-edit-button {
+    align-self: flex-end; 
+    padding: 8px;
+    border: none;
+    cursor: pointer;
+    margin-top: 4px; 
+}
+
+.employee-list {
+    margin: 10px; 
+    padding: 5px; 
 }
