@@ -50,14 +50,25 @@ export default class Company extends React.Component {
         const editForm = this.editForm(); 
         const editingOption = this.state.owner ? (
             <div>
-                <p onClick={this.handleClick}>{this.state.show ? "X" : "Edit Company"}</p>
+                <p className="splash-button" onClick={this.handleClick}>{this.state.show ? "X" : "Edit Company"}</p>
                 {this.state.show ? editForm : null}
             </div>) : null; 
 
+        const employeeList = this.state.owner ? (
+            <ul>
+                {this.props.employees.map(emp => {
+                    return (
+                        <li key={emp.email}>{emp.first_name} {emp.last_name}</li>
+                    )
+                })}
+            </ul>
+        ) : null; 
+
         return (
             <>
-                <div>Welcome to the {this.props.company ? this.props.company.name : null} Headquarters</div>
+                <div className="logged-in-splash-heading">Welcome to the {this.props.company ? this.props.company.name : null} Headquarters</div>
                 {editingOption}
+                {employeeList}
             </>
         )
 
