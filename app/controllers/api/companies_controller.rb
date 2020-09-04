@@ -5,6 +5,7 @@ class Api::CompaniesController < ApplicationController
         @company.owner_id = current_user.id 
         if @company.save 
             current_user.company_id = @company.id
+            current_user.admin = true; 
             current_user.save
             render "api/companies/show"
         else 

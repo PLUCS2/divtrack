@@ -22,9 +22,9 @@ class User < ApplicationRecord
     belongs_to :company, 
     optional: true
 
-    has_one :company, 
+    has_one :owned_company, 
     foreign_key: :owner_id, 
-    class_name: :User
+    class_name: :Company
     
     attr_reader :password
 

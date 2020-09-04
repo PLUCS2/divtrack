@@ -1,5 +1,6 @@
 import React from 'react'; 
 import EditCompanyContainer from './edit_company_container'; 
+import EmployeeListContainer from './employee_list_container'; 
 
 export default class Company extends React.Component {
 
@@ -56,13 +57,7 @@ export default class Company extends React.Component {
             </div>) : null; 
 
         const employeeList = this.state.owner ? (
-            <ul className="employee-list"> Employee List: 
-                {this.props.employees.map(emp => {
-                    return (
-                        <li key={emp.email}>{emp.first_name} {emp.last_name}</li>
-                    )
-                })}
-            </ul>
+            <EmployeeListContainer employees={this.props.employees} /> 
         ) : null; 
 
         return (
