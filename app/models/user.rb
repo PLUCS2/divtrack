@@ -87,4 +87,8 @@ class User < ApplicationRecord
         self.session_token
     end 
 
+    def admin? 
+        self.admin
+    end 
+
 end 

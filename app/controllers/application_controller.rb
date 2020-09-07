@@ -21,4 +21,8 @@ class ApplicationController < ActionController::Base
         session[:session_token] = nil
     end 
 
+    def ensure_admin_or_owner 
+        render json: ["You must be an admin to make this change"], status: 403 if !current_user.admin? 
+    end 
+
 end

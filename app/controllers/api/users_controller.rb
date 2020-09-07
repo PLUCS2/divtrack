@@ -1,5 +1,7 @@
 class Api::UsersController < ApplicationController 
 
+    before_action :ensure_admin_or_owner, only: [:admin]
+
     def create 
         @user = User.new(user_params)
         if @user.save
@@ -29,6 +31,16 @@ class Api::UsersController < ApplicationController
         if @user == current_user
             @user.destroy
             render "api/companies/index" 
+        end 
+    end 
+
+    def admin 
+        @user = User.find(params[:id])
+        new_admin = !@user.admin
+        if @user.update_attributes(admin: new_admin)
+            render :show
+        else 
+            render json: ["User failed to become an admin"], status: 401
         end 
     end 
 

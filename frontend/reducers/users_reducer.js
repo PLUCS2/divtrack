@@ -1,5 +1,6 @@
 import { RECEIVE_CURRENT_USER } from '../actions/session_actions'; 
 import { RECEIVE_COMPANY } from '../actions/company_actions';
+import { RECEIVE_USER } from '../actions/employee_actions'; 
 
 export default (state = {}, action) => {
 
@@ -11,6 +12,9 @@ export default (state = {}, action) => {
         }
         case RECEIVE_COMPANY: {
             return Object.assign({}, state, action.users)
+        }
+        case RECEIVE_USER: {
+            return Object.assign({}, state, {[action.user.id]: action.user})
         }
         default: 
             return state;
