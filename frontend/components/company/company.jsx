@@ -47,6 +47,11 @@ export default class Company extends React.Component {
         this.setState({show: op})
     }
 
+    limitEmployees() {
+        let emps = this.props.employees.filter(emp => emp.id !== this.props.currentUser.id); 
+        return emps 
+    }
+
     render() {
 
         const editForm = this.editForm(); 
@@ -56,8 +61,8 @@ export default class Company extends React.Component {
                 {this.state.show ? editForm : null}
             </div>) : null; 
 
-        const employeeList = this.state.owner ? (
-            <EmployeeListContainer employees={this.props.employees} /> 
+        const employeeList = (this.state.owner || this.props.currentUser.admin) ? (
+            <EmployeeListContainer employees={this.limitEmployees()} /> 
         ) : null; 
 
         return (

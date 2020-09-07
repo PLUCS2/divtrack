@@ -1,0 +1,12 @@
+.employee-list {
+    margin: 10px; 
+    padding: 5px; 
+}
+
+.employee-button {
+    border: none; 
+    background: none; 
+    cursor: pointer;
+    outline: none; 
+}
+
