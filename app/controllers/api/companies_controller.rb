@@ -15,8 +15,13 @@ class Api::CompaniesController < ApplicationController
 
     def update 
         @company = Company.find(params[:id])
+        old_email = @company.email_ending
         if @company.update_attributes(company_params)
-            render "api/companies/show"
+            if old_email != @company.email_ending
+                @company.redo_user_emails 
+            else 
+                render "api/companies/show"
+            end 
         else 
             render json: @company.errors.full_messages, status: 401
         end 

@@ -20,4 +20,14 @@ class Company < ApplicationRecord
     belongs_to :owner, 
     class_name: :User 
 
+    def redo_user_emails 
+        emps = self.employees 
+        emps.each do |emp| 
+            new_email = emp.email.split("@")[0] 
+            new_email += self.email_ending
+            emp.email = new_email
+            emp.save! 
+        end 
+    end 
+
 end 
