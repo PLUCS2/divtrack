@@ -4,3 +4,10 @@ export const changeAdmin = id => {
         method: "POST"
     }); 
 }; 
+
+export const fetchUser = id => {
+    return $.ajax({
+        url: `/api/users/${id}`, 
+        method: "GET"
+    })
+}; 
