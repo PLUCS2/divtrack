@@ -1,4 +1,5 @@
 import React from 'react'; 
+import { Link } from 'react-router-dom'; 
 
 export default class EmployeeList extends React.Component {
 
@@ -8,10 +9,10 @@ export default class EmployeeList extends React.Component {
                 {this.props.employees.map(emp => {
                 return (
                     <li key={emp.email}>
-                        {emp.first_name} {emp.last_name} 
+                        <Link to={`/profile/${emp.id}`}>{emp.first_name} {emp.last_name}</Link>
                         {emp.admin ? 
-                            <button className="employee-button" onClick={e => { e.preventDefault(); this.props.changeAdmin(emp.id) }}>☑</button> : 
-                            <button className="employee-button" onClick={e => { e.preventDefault(); this.props.changeAdmin(emp.id) }}>☐</button>}
+                            <button className="employee-button" onClick={e => { e.stopPropagation(); this.props.changeAdmin(emp.id) }}>☑</button> : 
+                                <button className="employee-button" onClick={e => { e.stopPropagation(); this.props.changeAdmin(emp.id) }}>☐</button>} 
                         </li>
                 )
             })}
