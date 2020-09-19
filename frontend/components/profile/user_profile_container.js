@@ -4,7 +4,9 @@ import { getUser } from '../../actions/employee_actions';
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        userInfo: state.entities.users[ownProps.match.params.id] || ownProps.match.params.id
+        userInfo: state.entities.users[ownProps.match.params.id] || ownProps.match.params.id, 
+        owner: state.session.currentUserId === ownProps.match.params.id, 
+        companies: state.entities.companies
     }
 }; 
 

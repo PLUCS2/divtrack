@@ -18,7 +18,8 @@ class Api::CompaniesController < ApplicationController
         old_email = @company.email_ending
         if @company.update_attributes(company_params)
             if old_email != @company.email_ending
-                @company.redo_user_emails 
+                @company.redo_user_emails  
+                render "api/companies/show"
             else 
                 render "api/companies/show"
             end 

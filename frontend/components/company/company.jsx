@@ -33,15 +33,13 @@ export default class Company extends React.Component {
 
         if (this.props.company.owner_id === this.props.currentUser.id) {
             const close = (<p onClick={this.handleClick} className="edit-company-button close-edit-button">X</p>);
-            return <EditCompanyContainer company={this.props.company} close={close} /> ;        
+            return <EditCompanyContainer company={this.props.company} close={close} closeEdit={this.handleClick} /> ;        
         }
 
         return null; 
     }
 
     handleClick(e) {
-        e.preventDefault(); 
-        
         let op = !this.state.show; 
 
         this.setState({show: op})

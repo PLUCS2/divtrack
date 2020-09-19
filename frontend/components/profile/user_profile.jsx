@@ -9,10 +9,24 @@ export default class UserProfile extends React.Component {
     render() {
         const user = this.props.userInfo; 
         
+        const company = this.props.companies[user.company_id] || {}; 
+        
+        if (this.props.owner) {
+            return (
+                <>
+                    <h1>Welcome Back {user.first_name}</h1>
+                </>
+            )
+        }
+
         return (
-            <h1>this is the user component
-                {user.first_name}
-            </h1>
+            <>
+                <h1>{user.first_name} {user.last_name}</h1>
+                    <ul>
+                        <li>Company: {company.name}</li>
+                        <li>Email: {user.email}</li>
+                    </ul>
+            </>
         )
     }
 }

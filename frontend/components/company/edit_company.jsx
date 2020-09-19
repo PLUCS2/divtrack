@@ -22,7 +22,7 @@ export default class EditForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault(); 
-        this.props.editCompany(this.state); 
+        this.props.editCompany(this.state).then(this.props.closeEdit); 
     }
 
     render() {
