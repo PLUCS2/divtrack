@@ -150,6 +150,9 @@ export default class Signup extends React.Component {
                 </form>
 
                 <p>Already have an account?<button className="modal-button" onClick={e => this.props.openModal("login")}>Login</button></p>
+
+                {this.state.other_modal ? <CategoryModal /> : null}; 
+            
             </div>
         )
     }

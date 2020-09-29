@@ -3,6 +3,18 @@
     padding: 5px; 
 }
 
+.employee-list p {
+    font-size: large; 
+    font-weight: bold;
+    display: inline-block; 
+    text-decoration: underline; 
+}
+
+.employee-list span {
+    font-size: small; 
+    margin-left: 6px; 
+}
+
 .employee-button {
     border: none; 
     background: none; 
@@ -10,3 +22,7 @@
     outline: none; 
 }
 
+.employee-list-link-profile {
+    text-decoration: none;
+    color: #2c5d95;
+}

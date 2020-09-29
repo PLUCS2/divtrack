@@ -11,7 +11,7 @@ export default (state = _defaultState, action) => {
     switch(action.type) {
         case OPEN_MODAL: {
             return {
-                modal: action.modal
+                modal: action.modal //login or signup 
             }
         }
         case RECEIVE_CURRENT_USER: {
