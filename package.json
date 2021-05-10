@@ -25,7 +25,8 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack --watch --mode=development"
+    "start": "webpack --watch --mode=development", 
+    "postinstall": "webpack"
   },
   "repository": {
     "type": "git",
@@ -37,5 +38,9 @@
   "bugs": {
     "url": "https://github.com/PLUCS2/divtrack/issues"
   },
-  "homepage": "https://github.com/PLUCS2/divtrack#readme"
+  "homepage": "https://github.com/PLUCS2/divtrack#readme", 
+  "engines": {
+    "node": "12.10.0", 
+    "npm": "6.11.3"
+  }
 }
