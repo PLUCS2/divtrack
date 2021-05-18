@@ -10,3 +10,19 @@ json.users do
         end 
     end 
 end 
+
+
+# {company: {
+#         1: {
+#             id: 1, 
+#             name: "Amazon"
+#         }, 
+
+#     }, 
+#     users: {
+#         1: {
+#             id: 1, 
+#             name: "Jack "
+#         }
+#     }
+# }

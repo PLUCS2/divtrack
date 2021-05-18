@@ -19,7 +19,7 @@ export const receiveCompanyErrors = errors => {
 }
 
 export const createCompany = company => dispatch => {
-    return APIUtil.createCompany(company).then(company => dispatch(receiveCompany(company)), errors => dispatch(receiveCompanyErrors(errors.responseJSON)));
+    return APIUtil.createCompany(company).then(payload => dispatch(receiveCompany(payload)), errors => dispatch(receiveCompanyErrors(errors.responseJSON)));
 };
 
 export const fetchCompany = id => dispatch => {
